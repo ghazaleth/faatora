@@ -1,0 +1,17 @@
+body{
+   color: #000 !important;
+}
+.main-container{
+   margin: 0 297px
+}
+
+#table-shown .table_page_tr,.table_page_th,.table_invoice_td{
+   text-align: center;
+   padding: 15px !important;
+   font-weight: bold;
+   border: 1px solid rgba(0, 0, 0, 0.212) !important;
+}
+
+label{
+   font-size: 13px !important;
+}

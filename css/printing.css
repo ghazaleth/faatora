@@ -1,0 +1,94 @@
+@media(max-width:1200px){
+    .main-container{
+        margin: 0;
+    }
+}
+.header_invoice{
+    display: flex;
+    justify-content: space-between;
+}
+.header_invoice>div{
+    display: flex;
+}
+
+#printin_table{
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+}
+.invoice_no, .invoice_date{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid rgba(80, 78, 78, 0.397);
+    padding: 0 10px;
+}
+.invoice_no_date,.payment_special{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 50px;
+}
+
+
+.payment-method-invoice .head{
+    border: 2px solid rgba(80, 78, 78, 0.397);
+    padding: 0 10px;
+    text-align: center;
+}
+
+.payment-method-invoice .body{
+    margin-top: 5px;
+    border: 2px solid rgba(80, 78, 78, 0.397);
+    padding:30px 10px 60px 10px;
+
+}
+.payment-method-invoice .body > div{
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+.check-input{
+    margin-left: 30px;
+}
+
+.main-box{
+    border: 2px solid rgba(80, 78, 78, 0.397);
+}
+.display-flex{
+    display: flex;
+}
+.justify-content-between-invoice{
+    justify-content: space-between;
+}
+.justify-content-around-invoice{
+    justify-content: space-around;
+}
+.main-margin-bottom{
+    margin-bottom: 5px;
+}
+.main-margin-top{
+    margin-top: 5px;
+}
+.main-padding{
+    padding: 10px;
+}
+#printin_table{
+    display: none; 
+    vertical-align : top;
+}
+.printing-table{
+    padding: 0;
+}
+@media print {
+    @page{
+        size: A4;
+    }
+    #printin_table{
+        display:table;
+        width: 100%;
+    }
+    .main-container{
+        display: none;
+    }
+}
+.total_printing_amount {
+    break-inside: avoid;
+}

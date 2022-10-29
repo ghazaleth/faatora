@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+        <link rel="stylesheet" href="css/printing.css">
+        <link rel="stylesheet" href="css/libraries/bootstrap.min.css">
+        <link rel="icon" href="images/invoice.png">
+        <title>Faatora</title>
+    </head>
+    <body>
+        <div class="loading text-center justify-content-center align-items-center position-absolute top-50 left-50 start-50"><i class="fa fa-spinner fa-spin fa-4x text-dark"></i></div>
+        <div class="printing-table">
+            <table id="printin_table">
+                <thead>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="header_invoice">
+                                    <div class="align-items-center">
+                                        <div>
+                                            <h5>SIMPLIFIED TAX <p>INVOICE</p></h5>
+                                            <h5>Consignment No: <p>173341</p></h5>
+                                        </div>
+                                        <div id="company_details_invoice" class="ms-3"></div>
+                                    </div>
+                                    <div>
+                                        <img src="images/qr.png" width="150" height="150" alt="">
+                                    </div>
+                                </div>
+                                <div class="invoice_no_date my-4">
+                                    <div class="invoice_no p-2">
+                                        <p class="m-0">Invoice No.</p>
+                                        <p class="m-0">173341</p>
+                                    </div>
+                                    <div class="invoice_date p-2">
+                                        <p class="m-0">Invoice Date.</p>
+                                        <p class="m-0" id="invoice_date_printing"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="payment_special">
+                                <div class="payment-method-invoice">
+                                    <div class="head">
+                                        <p class="m-0 py-2 fw-bold">Payment Method</p>
+                                    </div>
+                                    <div class="body">
+                                        <div class="display-flex justify-content-between-invoice">
+                                            <label for="cash">Cash</label>
+                                            <input type="checkbox" name="cash" id="cash" class="check-input">
+                                        </div>
+                                        <div class="display-flex justify-content-between-invoice">
+                                            <label for="cod">COD</label>
+                                            <input type="checkbox" name="cod" id="cod" class="check-input">
+                                        </div>
+                                        <div class="display-flex justify-content-between-invoice">
+                                            <label for="b_transfer">Bank Transfer</label>
+                                            <input type="checkbox" name="b_transfer" id="b_transfer" class="check-input">
+                                        </div>
+                                    </div>
+                                    <div class="sender-details main-margin-top">
+                                        <div class="head">
+                                            <p class="m-0 py-2 fw-bold">Sender's Details</p>
+                                        </div>
+                                        <div class="main-box main-margin-top">
+                                            <div class="main-padding" id="sender_details_invoice">
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                                <div class="payment-method-invoice">
+                                    <div class="head">
+                                        <p class="m-0 py-2 fw-bold">Special Delivery</p>
+                                    </div>
+                                    <div class="body d-flex justify-content-around">
+                                        <img src="images/qr.png" width="70" height="70" alt="">
+                                        <div>
+                                            <div class="display-flex justify-content-between-invoice mb-2">
+                                                <label for="officedelivery" class="fw-bold">Office Delivery</label>
+                                                <input type="checkbox" class="ms-2" name="officedelivery" id="officedelivery">
+                                            </div>
+                                            <div class="display-flex justify-content-between-invoice mb-2">
+                                                <label for="doortodoor" class="fw-bold">Door To Door</label>
+                                                <input type="checkbox" class="ms-2" name="doortodoor" id="doortodoor">
+                                            </div>
+                                            <div class="display-flex justify-content-between-invoice mb-2">
+                                                <label for="vgoods" class="fw-bold">Values of Goods</label>
+                                            </div>
+                                            <div class="display-flex justify-content-between-invoice mb-2">
+                                                <label for="vgoods" class="fw-bold">Delivery Cost</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sender-details main-margin-top">
+                                        <div class="head">
+                                            <p class="m-0 py-2 fw-bold">Recevier's Details</p>
+                                        </div>
+                                        <div class="main-box main-margin-top">
+                                            <div class="main-padding" id="recevier_details_invoice">
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table mt-5">
+                                <thead>
+                                  <tr>
+                                    <th>SL</th>
+                                    <th>Item & Description</th>
+                                    <th>Qty</th>
+                                    <th>Discount</th>
+                                    <th>VAT 15%</th>
+                                    <th>Amount</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="table_invoice">
+                                </tbody>
+                            </table>
+    
+                            <!-- <div class="total-amount card" id="total_amount_invoice">
+    
+                            </div> -->
+                            <div class="pagebreak"> </div>
+    
+                            <table class="d-flex justify-content-between p-3 col-6 ms-auto total_printing_amount main-box p-2">
+                                <thead>
+                                    <th class="d-block">Total (Excluding Vat)</th>
+                                    <th class="d-block">Discount</th>
+                                    <th class="d-block">Total VAT (15%) VAT</th>
+                                    <th class="d-block">Total Amount Due</th>
+                                </thead>
+                                <tbody id="printing_table_total">
+                                    <tr>
+                                        <td class="d-block">725.0</td>
+                                        <td class="d-block">0</td>
+                                        <td class="d-block">3.00</td>
+                                        <td class="d-block">4564</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+    
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- <tfoot>
+                    <tr>
+                        <td>footer</td>
+                    </tr>
+                </tfoot> -->
+            </table>  
+        </div>      
+
+      <div class="main-container position-relative" id="invoice">
+            <div class="p-3">
+                <header>
+                    <div class="custom-container">
+                        <div class="mb-3">
+                            <button class="btn btn-dark px-5 fw-bold w-sm-100" onclick="printInvoice()">Print</button>
+                            <button class="btn btn-warning text-light fw-bold px-5 w-sm-100" onclick="downloadInvoice()">Download</button>
+                        </div>
+                    </div>
+                </header>
+                <section>
+                    <div class="custom-container">
+                        <div class="bg-light p-5 p-lg-6 color-head border-top border-dark border-5">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 text-start">
+                                    <h2 class="fs-5">SIMPLIFIED TAX <span class="d-block">INVOICE</span></h2>
+                                    <h2 class="fs-5">Consignment No: <span class="d-block">173341</span></h2>
+                                </div>
+                                <div class="col-lg-6" id="company_details">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="invoice-details my-5">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="border border-3 bg-light d-flex justify-content-between p-4 mt-3">
+                                        <h5 class="m-0">Invoice No.</h5>
+                                        <h5 class="m-0">256489</h5>
+                                    </div>
+                                    <div class="payment-method">
+                                        <div class="my-2 border border-3 bg-dark text-light">
+                                            <h5 class="m-0 p-4">Payment Method</h5>
+                                        </div>
+                                        <div class="border border-3 bg-light p-4">
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="form-group mb-3 d-flex justify-content-between">
+                                                    <label for="cash" class="fs-6 fw-bold">Cash</label>
+                                                    <input type="checkbox" name="cash" id="cash">
+                                                </div>
+                                                <div class="form-group mb-3 d-flex justify-content-between">
+                                                    <label for="cod" class="fs-6 fw-bold">COD</label>
+                                                    <input type="checkbox" name="cod" id="cod">
+                                                </div>
+                                                <div class="form-group d-flex justify-content-between">
+                                                    <label for="b_transfer" class="fs-6 fw-bold">Bank Transfer</label>
+                                                    <input type="checkbox" name="b_transfer" id="b_transfer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sender-details">
+                                        <div class="my-2 border border-3 bg-dark text-light">
+                                            <h5 class="m-0 p-4">Sender's Details</h5>
+                                        </div>
+                                        <div class="border border-3 bg-light p-4" id="sender_details">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-3">
+                                    <div class="border border-3 bg-light d-flex justify-content-between p-4">
+                                        <h5 class="m-0">Invoice Date.</h5>
+                                        <h5 class="m-0" id="invoice_date">256489</h5>
+                                    </div>
+                                    <div class="special-delivery">
+                                        <div class="my-2 border border-3 bg-dark text-light">
+                                            <h5 class="m-0 p-4">Special Delivery</h5>
+                                        </div>
+                                        <div class="border border-3 bg-light p-4">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <img src="images/qr.png" width="250" height="250" class="img-fluid" alt="">
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="form-group mb-3 d-flex justify-content-between">
+                                                        <label for="officedelivery" class="fs-6 fw-bold">Office Delivery</label>
+                                                        <input type="checkbox" name="officedelivery" id="officedelivery">
+                                                    </div>
+                                                    <div class="form-group mb-3 d-flex justify-content-between">
+                                                        <label for="doortodoor" class="fs-6 fw-bold">Door To Door</label>
+                                                        <input type="checkbox" name="doortodoor" id="doortodoor">
+                                                    </div>
+                                                    <div class="form-group mb-3 d-flex justify-content-between">
+                                                        <label for="vgoods" class="fs-6 fw-bold">Values of Goods</label>
+                                                    </div>
+                                                    <div class="form-group d-flex justify-content-between">
+                                                        <label for="vgoods" class="fs-6 fw-bold">Delivery Cost</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sender-details">
+                                        <div class="my-2 border border-3 bg-dark text-light">
+                                            <h5 class="m-0 p-4">Recevier's Details</h5>
+                                        </div>
+                                        <div class="border border-3 bg-light p-4" id="recevier_details">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 table-div mt-5">
+                                    <div class="table-responsive">
+                                        <table class="table table-light table-striped table-hover p-3 table_page">
+                                            <thead id="table-shown">
+                                                <tr class="table_page_tr">
+                                                    <th class="bg-dark text-light table_page_th">SL</th>
+                                                    <th class="bg-dark text-light table_page_th">Item & Description</th>
+                                                    <th class="bg-dark text-light table_page_th">Qty</th>
+                                                    <th class="bg-dark text-light table_page_th">Discount</th>
+                                                    <th class="bg-dark text-light table_page_th">VAT 15%</th>
+                                                    <th class="bg-dark text-light table_page_th">Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody">
+        
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total-amount col-lg-6 ms-auto" id="total_amount"></div>
+                    </div>
+                </section>
+                <footer>
+                    <div class="custom-container">
+                        <h5>Terms & Conditions</h5>
+                        <p>Powered by <a href="https://www.Faatora.com">Faatora.com</a></p>    
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        <script src="js/libraries/jquery-3.6.0.min.js"></script>
+        <script src="js/libraries/printThis.js"></script>
+        <script src="  https://printjs-4de6.kxcdn.com/print.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/app.js"></script>
+        <script src="js/libraries/bootstrap.min.js"></script>
+        <script src="js/libraries/a1a75d5546.js"></script>
+        
+    </body>
+</html>
